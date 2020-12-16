@@ -24,3 +24,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('users','UsersController');
 });
+
+Route::get('guichets','GuichetsController@index');
+Route::get('guichets/create','GuichetsController@create');
+Route::post('guichets','GuichetsController@store');
+Route::get('guichets/edit/{guichet}','GuichetsController@edit');
+Route::get('guichets/show/{guichet}','GuichetsController@show');
+Route::put('guichets/{guichet}','GuichetsController@update');
+Route::post('guichets/destroy/{guichet}','GuichetsController@destroy');
+
