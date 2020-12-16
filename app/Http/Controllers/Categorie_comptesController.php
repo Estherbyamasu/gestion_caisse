@@ -54,7 +54,7 @@ class Categorie_comptesController extends Controller
     
     }
 
-    public function storecompte(Request $request){
+    public function storecompte(Request $request){ 
     $request->validate([
         'categorie_compte_id' =>'required',
         
@@ -79,7 +79,6 @@ class Categorie_comptesController extends Controller
     $compte->solde= $request->solde;
     $compte->telephone= $request->telephone;
     $compte->email= $request->email;
-
     $compte->save();
     return $this->show($request->categorie_compte_id);
 }
