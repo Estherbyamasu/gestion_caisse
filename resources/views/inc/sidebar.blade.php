@@ -80,6 +80,9 @@
           
             </ul>
           </li>
+          <li><a class="" href="{{ url('caisse_utilisateurs')}}">
+						<span class="fa fa-list-alt">&nbsp;</span> Caisse utilisateurs
+					</a></li>
           <li><a class="" href="{{ url('historiques')}}">
 						<span class="fa fa-list-alt">&nbsp;</span> Historique
 					</a></li>
