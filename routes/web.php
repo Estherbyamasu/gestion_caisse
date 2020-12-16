@@ -33,3 +33,9 @@ Route::get('guichets/show/{guichet}','GuichetsController@show');
 Route::put('guichets/{guichet}','GuichetsController@update');
 Route::post('guichets/destroy/{guichet}','GuichetsController@destroy');
 
+Route::get('caisses','CaissesController@index');
+Route::get('caisses/create','CaissesController@create');
+Route::post('caisses','CaissesController@store');
+Route::get('caisses/edit/{caisse}','CaissesController@edit');
+Route::put('caisses/{caisse}','CaissesController@update');
+Route::post('caisses/destroy/{caisse}','CaissesController@destroy');
