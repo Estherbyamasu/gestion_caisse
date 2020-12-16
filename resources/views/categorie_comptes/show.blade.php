@@ -104,7 +104,7 @@
                
                <div class="panel-body">
                    <div class="col-md-8">
-                       <form role="form" action="{{ url('categorie_compte') }}" method="post">
+                       <form role="form" action="/categorie_comptes/storecompte" method="POST">
                            @csrf
 
 
