@@ -30,8 +30,8 @@ Route::get('categorie_comptes/create','Categorie_comptesController@create');
 Route::get('categorie_comptes/edit/{categorie_compte}','Categorie_comptesController@edit');
 Route::get('categorie_comptes/{categorie_compte}','Categorie_comptesController@show');
 Route::post('categorie_comptes','Categorie_comptesController@store');
-Route::post('categorie_compte','Categorie_comptesController@storecompte');
-Route::get('categorie_comptes/show/{categorie_compte}','Categorie_comptesController@show');
+Route::post('categorie_comptes/storecompte','Categorie_comptesController@storecompte');
+Route::get('categorie_comptes/show/{categorie_compte}','Categorie_comptesController@show'); 
 Route::post('categorie_comptes/destroy/{categorie_compte}','Categorie_comptesController@destroy');
 Route::put('categorie_comptes/{categorie_compte}','Categorie_comptesController@update');
 
