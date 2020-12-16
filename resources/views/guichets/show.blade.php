@@ -40,7 +40,7 @@
           
             <div class="panel-body">
            
-                <div class="panel-heading">Liste des caisses appartenant dans la guichet {{ $guichet_caissess->numero_guichet }}</div>
+                <div class="panel-heading">Liste des caisses appartenant dans la guichet {{ $guichet_caisses->numero_guichet }}</div>
                 
                 
                    
@@ -49,6 +49,17 @@
                     @csrf
                    
 
+                    <div class="form-group">
+                               <label>Num caisse:</label>
+                               <input type="text" name="numero_caisse" class="form-control"
+                                placeholder="Entrez le numero de la caisse" required>
+                           </div>
+
+                           <div class="form-group">
+                               <label>Solde caisse:</label>
+                               <input type="text" name="solde_caisse" class="form-control"
+                                placeholder="Entrez le solde de la caisse" required>
+                           </div>
 
 
 
@@ -71,22 +82,21 @@
                             <tr>
                                         <th>ID</th>
                                         <th>Numero du Caisse</th>
-                                        <th> Solde d'ouverture</th>
-                                        <th>Solde de Cloture</th>
-                                        <th> Numero du Guichet</th>
-                                        <th>Options</th>
-                                        <th>Options</th>
+                                        <th> Solde caisse</th>
+                                        
+                                       
+                                        
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($guichet_caisses->$caisses as $caisse)
+                                    @foreach ($guichet_caisses->caisses as $caisse)
                                         <tr>
                                             <td> {{ $caisse->id }}</td>
                                             <td> {{ $caisse->numero_caisse }}</td>
-                                            <td> {{ $caisse->solde_ouverture }}</td>
-                                            <td> {{ $caisse->solde_cloture }}</td>
-                                            <td> {{ $caisse->nom_guichet }}</td>
+                                            <td> {{ $caisse->solde_caisse }}</td>
+                                            
+                                           
 
                                            
                                 </tr>
