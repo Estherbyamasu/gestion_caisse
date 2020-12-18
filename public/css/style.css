@@ -17,10 +17,19 @@ Website: http://Alvarez.is/
 /* BASIC THEME CONFIGURATION */
 
 
-  
-  
+.color_d{
+    color:#fff!important;
+    
+  }
+.color_siew{
+    color:black !important;
+    
+  }
 
-
+  .color_id{
+    color:black !important;
+    font-size:30px !important;
+  }
 body {
     color: #797979;
 	background: #eaeaea;

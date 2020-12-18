@@ -8,7 +8,7 @@
   <!-- Favicons -->
   <link href="{{asset('img/favicon.png')}}" rel="icon">
   <link href="{{asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
-
+	<link href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link href="{{asset('lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <!--external css-->

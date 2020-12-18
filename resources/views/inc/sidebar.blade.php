@@ -5,10 +5,10 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle page-header " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                     <span class="caret color_siew">{{ Auth::user()->name }}</span>
+                                     <span class="caret color_d ">{{ Auth::user()->name }}</span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-left  color_id" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-left " aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -57,8 +57,8 @@
           <li><a class="" href="{{ url('caisses')}}">
 						<span class="fa fa-bar-chart">&nbsp;</span> Caisses
 					</a></li>
-          <li><a class="" href="{{ url('detaille_caisses')}}">
-						<span class="fa fa-bar-chart">&nbsp;</span> Detaille caisse
+          <li><a class="" href="{{ url('caisse_details')}}">
+						<span class="fa fa-bar-chart">&nbsp;</span> Caisse details
 					</a></li>
          
               
