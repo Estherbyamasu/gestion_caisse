@@ -38,11 +38,12 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">Nom utilisateur</th>
-                                    <th scope="col">Numero caisse</th>
                                     <th scope="col">Heure debut</th>
                                     <th scope="col">Heure fin</th>
                                     <th scope="col">Date</th>
+                                    <th scope="col">Nom utilisateur</th>
+                                    <th scope="col">Numero caisse</th>
+                                    
                                     <th scope="col">Options</th>
                                 </tr>
                             </thead>
@@ -50,11 +51,12 @@
                                 @foreach($caisse_utilisateurs as $caisse_utilisateur)
                                 <tr>
                                     <td>{{ $caisse_utilisateur->id }}</td>
-                                    <td>{{ $caisse_utilisateur->name }}</td>
-                                    <td>{{ $caisse_utilisateur->numero_caisse }}</td>
                                     <td>{{ $caisse_utilisateur->heure_debut }}</td>
                                     <td>{{ $caisse_utilisateur->heure_fin }}</td>
                                     <td>{{ $caisse_utilisateur->date }}</td>
+                                    <td>{{ $caisse_utilisateur->name }}</td>
+                                    <td>{{ $caisse_utilisateur->numero_caisse }}</td>
+                                    
                                     <td>
                                         <a href="caisse_utilisateurs/edit/{{ $caisse_utilisateur->id }}" class="glyphicon glyphicon-edit   btn btn-info">edit</a>
                                         <form action="caisse_utilisateurs/destroy/{{ $caisse_utilisateur->id }}" method="post" class="form-inline">
@@ -88,27 +90,6 @@
                        <form role="form" action="{{ url('caisse_utilisateurs') }}" method="post">
                            @csrf
                            <div class="form-group">
-                    <label for="numero_caisse">Numero caisse</label>
-                    <select name="caisse_id" id="" class="form-control" 
-                    class="@error('date') is-danger @enderror" required>
-                        <option value="">Select caisse</option>
-                        @foreach($caisses as $caisse)
-                        <option value="{{$caisse->id}}">{{$caisse->numero_caisse}}</option>
-                        @endforeach
-                        @error('caisse_id')
-                    <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
-                    </select>
-                </div>
-                           <div class="form-group">
-            <label for="">Name user</label>
-                    <input type="text" name="name" id="name" class="form-control" value="{{ Auth::user()->name }}"
-                    class="@error('name') is-danger @enderror " placeholder="" aria-describedby="helpId" required>
-                    @error('name')
-                    <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
             <label for="">Heure debut</label>
                     <input type="time" name="heure_debut" id="heure_debut" class="form-control "
                     class="@error('heure_debut') is-danger @enderror " placeholder="" aria-describedby="helpId" required>
@@ -132,7 +113,29 @@
                     <div class="alert alert-danger">{{$message}}</div>
                     @enderror
                 </div>
-                         
+                <div class="form-group">
+            <label for="">Name user</label>
+                    <input type="text" name="name" id="name" class="form-control" value="{{ Auth::user()->name }}"
+                    class="@error('name') is-danger @enderror " placeholder="" aria-describedby="helpId" required>
+                    @error('name')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                           <div class="form-group">
+                    <label for="numero_caisse">Numero caisse</label>
+                    <select name="caisse_id" id="" class="form-control" 
+                    class="@error('date') is-danger @enderror" required>
+                        <option value="">Select caisse</option>
+                        @foreach($caisses as $caisse)
+                        <option value="{{$caisse->id}}">{{$caisse->numero_caisse}}</option>
+                        @endforeach
+                        @error('caisse_id')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                    </select>
+                </div>
+                    
+              
                            <div class="modal-footer">
       <div class="row">
             <div class="text-center mb-3 col-md-6">
