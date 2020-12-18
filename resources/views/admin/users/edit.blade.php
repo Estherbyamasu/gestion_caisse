@@ -1,6 +1,16 @@
 @extends('templates.default')
 
 @section('content')
+<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+					<em class="fa fa-home"></em>
+				</a></li>
+				<li class="active"></li>
+			</ol>
+		</div><!--/.row-->
+		
+		
 
 <div class="col-lg-4"></div>
 <div class="col-lg-8">
@@ -10,7 +20,7 @@
             <div class="modal-content">
      
      <div class="modal-body text-center mb-1">
-                <div class="card-header"><h2>Modifier les utilisateurs</h2></div>
+                <div class="card-header"><h2>Modification des utilisateurs</h2></div>
 
                 
                 <div class="card-body">

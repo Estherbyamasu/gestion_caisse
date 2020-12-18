@@ -1,10 +1,13 @@
 <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
 <script src="{{asset('lib/chart-master/Chart.js')}}"></script>
 <script src="{{asset('lib/bootstrap/js/bootstrap.min.js')}}"></script>
 <script class="include" type="text/javascript" src="{{asset('lib/jquery.dcjqaccordion.2.7.js')}}"></script>
 <script src="{{asset('lib/jquery.scrollTo.min.js')}}"></script>
 <script src="{{asset('lib/jquery.nicescroll.js')}}" type="text/javascript"></script>
 <script src="{{asset('lib/jquery.sparkline.js')}}"></script>
+<script src="{{ asset('js/moment.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}" ></script>
 <!--common script for all pages-->
 <script src="{{asset('lib/common-scripts.js')}}"></script>
 <script type="text/javascript" src="{{asset('lib/gritter/js/jquery.gritter.js')}}"></script>
@@ -12,6 +15,10 @@
 <!--script for this page-->
 <script src="{{asset('lib/sparkline-chart.js')}}"></script>
 <script src="{{asset('lib/zabuto_calendar.js')}}"></script>
+<script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     var unique_id = $.gritter.add({
@@ -73,4 +80,32 @@
     var to = $("#" + id).data("to");
     console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
   }
+</script>
+
+<script>
+ $(function()
+ {
+	 $('.datepicker').datetimepicker({
+		 format:'YYYY-MM-DD '
+	 });
+ });
+ $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+</script>
+
+<script>
+  $(function() {
+                $("#example1").dataTable();
+                $('#example2').dataTable({
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false
+                });
+            });
 </script>
