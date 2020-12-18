@@ -20,7 +20,7 @@ class Caisse_utilisateursController extends Controller
         $caisse_utilisateurs = DB::table('caisse_utilisateurs')
             ->join('caisses', 'caisse_utilisateurs.caisse_id', '=', 'caisses.id')
             
-            ->join('users', 'factures.user_id', '=', 'users.id')
+            ->join('users', 'caisse_utilisateurs.user_id', '=', 'users.id')
          
             ->select('caisses.*','users.*','caisse_utilisateurs.*')
             ->get();
@@ -63,19 +63,22 @@ class Caisse_utilisateursController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'caisse_id' => 'required',
-            
             'heure_debut' => 'required',
             'heure_fin' => 'required',
-            'date' => 'required'
+            'date' => 'required',
+            'caisse_id' => 'required',
+            
+            
         ]);
 
-        $caisse_utilisateur = new Facture();
-        $caisse_utilisateur->caisse_id = $request->caisse_id;
-        $caisse_utilisateur->user_id = Auth::id();
+        $caisse_utilisateur = new Caisse_utilisateur();
         $caisse_utilisateur->heure_debut = $request->heure_debut;
         $caisse_utilisateur->heure_fin = $request->heure_fin;
         $caisse_utilisateur->date = $request->date;
+        $caisse_utilisateur->user_id = Auth::id();
+        $caisse_utilisateur->caisse_id = $request->caisse_id;
+       
+       
         $caisse_utilisateur->save();
 
         return redirect('caisse_utilisateurs');
@@ -124,19 +127,22 @@ class Caisse_utilisateursController extends Controller
     public function update(Request $request, Caisse_Utilisateur $caisse_Utilisateur)
     {
         $request->validate([
-            'caisse_id' => 'required',
-            
             'heure_debut' => 'required',
             'heure_fin' => 'required',
-            'date' => 'required'
+            'date' => 'required',
+            'caisse_id' => 'required',
+            
+            
         ]);
 
         $caisse_utilisateur = new Facture();
-        $caisse_utilisateur->caisse_id = $request->caisse_id;
-        $caisse_utilisateur->user_id = Auth::id();
         $caisse_utilisateur->heure_debut = $request->heure_debut;
         $caisse_utilisateur->heure_fin = $request->heure_fin;
         $caisse_utilisateur->date = $request->date;
+        $caisse_utilisateur->user_id = Auth::id();
+        $caisse_utilisateur->caisse_id = $request->caisse_id;
+        
+       
         $caisse_utilisateur->save();
 
         return redirect('caisse_utilisateurs');
@@ -153,6 +159,6 @@ class Caisse_utilisateursController extends Controller
         $caisse_utilisateur = Caisse_utilisateur::find($caisse_utilisateur->id);
         $caisse_utilisateur->delete();
 
-        return redirect('factures');
+        return redirect('caisse_utilisateurs');
     }
 }
