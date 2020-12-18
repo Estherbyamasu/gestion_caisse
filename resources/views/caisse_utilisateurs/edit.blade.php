@@ -67,7 +67,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Date </label>
-                    <input type="text" name="date" id="date" value="{{$caisse_utilisateur->date}}" 
+                    <input type="datetime-local" name="date" id="date" value="{{$caisse_utilisateur->date}}" 
                      class="@error('date') is-danger @enderror form-control datepicker" placeholder="" aria-describedby="helpId">
                     @error('date')
                     <div class="alert alert-danger">{{$message}}</div>
