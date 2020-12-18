@@ -57,8 +57,8 @@
           <li><a class="" href="{{ url('caisses')}}">
 						<span class="fa fa-bar-chart">&nbsp;</span> Caisses
 					</a></li>
-          <li><a class="" href="{{ url('detaille_caisses')}}">
-						<span class="fa fa-bar-chart">&nbsp;</span> Detaille caisse
+          <li><a class="" href="{{ url('caisse_details')}}">
+						<span class="fa fa-bar-chart">&nbsp;</span> Caisse details
 					</a></li>
          
               
@@ -80,6 +80,9 @@
           
             </ul>
           </li>
+          <li><a class="" href="{{ url('caisse_utilisateurs')}}">
+						<span class="fa fa-list-alt">&nbsp;</span> Caisse utilisateurs
+					</a></li>
           <li><a class="" href="{{ url('historiques')}}">
 						<span class="fa fa-list-alt">&nbsp;</span> Historique
 					</a></li>
