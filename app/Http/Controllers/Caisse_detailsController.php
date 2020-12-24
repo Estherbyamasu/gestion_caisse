@@ -41,7 +41,13 @@ class Caisse_detailsController extends Controller
      */
     public function create()
     {
-        //
+        $comptes = Compte::all();
+ $caisses = Caisse::all();
+ 
+
+    # code...
+    return view('caisse_details/create',
+   ['comptes'=>$comptes,'caisses'=>$caisses]);
     }
 
     /**
@@ -52,7 +58,52 @@ class Caisse_detailsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'compte_id' =>'required',
+            'caisse_id' =>'required',
+            'type_action' =>'required',
+            'somme' =>'required',
+            'libelle' =>'required']);
+        $caisse_detail= new Caisse_detail();
+        $caisse_detail->compte_id= $request->compte_id;
+       
+        $caisse_detail->caisse_id= $request->caisse_id;
+        $caisse_detail->type_action= $request->type_action;
+        $caisse_detail->somme= $request->somme;
+        $caisse_detail->libelle= $request->libelle;
+        
+        $caisse_detail->save();
+
+         if($caisse_detail->type_action === 'encaissement'){
+
+        $caisse = Caisse::find($caisse_detail->caisse_id);
+        // $caisse->solde_caisse=0;
+        $caisse->solde_caisse=$caisse->solde_caisse + $caisse_detail->somme;
+        $caisse->save();
+
+        
+
+        $compte = Compte::find($caisse_detail->compte_id);
+        // $compte->solde=0;
+        $compte->solde=$compte->solde + $caisse_detail->somme;
+        $compte->save();
+
+         }
+        
+         elseif($caisse_detail->type_action==='decaissement'){
+            $caisse = Caisse::find($caisse_detail->caisse_id);
+            $caisse->solde_caisse=$caisse->solde_caisse - $caisse_detail->somme;
+            $caisse->save();
+    
+          
+    
+            $compte = Compte::find($caisse_detail->compte_id);
+            $compte->solde=$compte->solde - $caisse_detail->somme;
+            $compte->save();
+        
+    }
+ 
+        return redirect('caisse_details');
     }
 
     /**
@@ -74,7 +125,17 @@ class Caisse_detailsController extends Controller
      */
     public function edit(Caisse_detail $caisse_detail)
     {
-        //
+        $comptes= Compte::all();
+        $caisses= Caisse::all();
+         
+        $caisse_detail= Caisse_detail::find($caisse_detail->id);
+        return view('caisse_details/edit', [
+         'caisse_detail'=>$caisse_detail,
+            'comptes'=>$comptes,
+            'caisses'=>$caisses,
+           
+    
+        ]);
     }
 
     /**
@@ -86,7 +147,25 @@ class Caisse_detailsController extends Controller
      */
     public function update(Request $request, Caisse_detail $caisse_detail)
     {
-        //
+        $request->validate([
+            'compte_id' =>'required',
+            'caisse_id' =>'required',
+            'type_action' =>'required',
+            'somme' =>'required',
+            'libelle' =>'required'
+            
+           
+        ]);
+        $caisse_detail= new Caisse_detail();
+        $caisse_detail->compte_id= $request->compte_id;
+       
+        $caisse_detail->caisse_id= $request->caisse_id;
+        $caisse_detail->type_action= $request->type_action;
+        $caisse_detail->somme= $request->somme;
+        $caisse_detail->libelle= $request->libelle;
+        
+        $caisse_detail->save();
+        return redirect('caisse_details');
     }
 
     /**
@@ -97,6 +176,9 @@ class Caisse_detailsController extends Controller
      */
     public function destroy(Caisse_detail $caisse_detail)
     {
-        //
+        $caisse_detail = Caisse_detail::find($caisse_detail->id);
+        $caisse_detail->delete();
+
+        return redirect('caisse_details');
     }
 }
