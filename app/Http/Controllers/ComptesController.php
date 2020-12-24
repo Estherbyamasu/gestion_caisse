@@ -10,6 +10,10 @@ use App\Categorie_compte;
  
 class ComptesController extends Controller{
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 public function index()
 {
     # code... 
