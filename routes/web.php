@@ -72,11 +72,7 @@ Route::put('comptes/{compte}','ComptesController@update');
 
 Route::get('caisse_details','Caisse_detailsController@index');
 
-Route::get('caisse_details/create','Caisse_detailsControllerController@create');
-Route::post('caisse_details','Caisse_detailsControllerController@store');
-Route::get('caisse_details/edit/{caisse_detail}','Caisse_detailsControllerController@edit');
-Route::put('caisse_details/{caisse_detail}','Caisse_detailsControllerController@update');
-Route::post('caisse_details/destroy/{caisse_detail}','Caisse_detailsControllerController@destroy');
+
 
 
 Route::get('caisse_details/create','Caisse_detailsController@create');
