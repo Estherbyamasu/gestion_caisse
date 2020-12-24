@@ -27,12 +27,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 
 
 
-Route::get('caisse_utilisateurs','Caisse_utilisateursController@index');
-Route::get('caisse_utilisateurs/create','Caisse_utilisateursController@create');
-Route::post('caisse_utilisateurs','Caisse_utilisateursController@store');
-Route::get('caisse_utilisateurs/edit/{caisse_utilisateur}','Caisse_utilisateursController@edit');
-Route::put('caisse_utilisateurs/{caisse_utilisateur}','Caisse_utilisateursController@update');
-Route::post('caisse_utilisateurs/destroy/{caisse_utilisateur}','Caisse_utilisateursController@destroy');
+
 
 
 Route::get('guichets','GuichetsController@index');
@@ -49,6 +44,7 @@ Route::post('caisses','CaissesController@store');
 Route::get('caisses/edit/{caisse}','CaissesController@edit');
 Route::put('caisses/{caisse}','CaissesController@update');
 Route::post('caisses/destroy/{caisse}','CaissesController@destroy');
+
 
 
 Route::get('categorie_comptes','Categorie_comptesController@index');
@@ -80,4 +76,12 @@ Route::post('caisse_details','Caisse_detailsController@store');
 Route::get('caisse_details/edit/{caisse_detail}','Caisse_detailsController@edit');
 Route::put('caisse_details/{caisse_detail}','Caisse_detailsController@update');
 Route::post('caisse_details/destroy/{caisse_detail}','Caisse_detailsController@destroy');
+
+
+Route::get('caisse_users','Caisse_usersController@index');
+Route::get('caisse_users/create','Caisse_usersController@create');
+Route::post('caisse_users','Caisse_usersController@store');
+Route::get('caisse_users/edit/{caisse_utilisateur}','Caisse_usersController@edit');
+Route::put('caisse_users/{caisse_utilisateur}','Caisse_usersController@update');
+Route::post('caisse_users/destroy/{caisse_utilisateur}','Caisse_usersController@destroy');
 

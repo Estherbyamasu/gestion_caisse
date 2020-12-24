@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCaisseUtilisateursTable extends Migration
+class CreateCaisseUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCaisseUtilisateursTable extends Migration
      */
     public function up()
     {
-        Schema::create('caisse_utilisateurs', function (Blueprint $table) {
+        Schema::create('caisse_users', function (Blueprint $table) {
             $table->id();
             $table->time('heure_debut');
             $table->time('heure_fin');
@@ -41,6 +41,6 @@ class CreateCaisseUtilisateursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('caisse_utilisateurs');
+        Schema::dropIfExists('caisse_users');
     }
 }

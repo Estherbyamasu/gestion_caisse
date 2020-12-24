@@ -8,7 +8,7 @@
             <li><a href="#">
                     <em class="fa fa-home"></em>
                 </a></li>
-            <li class="active">Caisse utilisateurs</li>
+            <li class="active">Caisse users</li>
         </ol>
     </div>
     <!--/.row-->
@@ -16,7 +16,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Caisse utilisateurs</h1>
+            <h1 class="page-header">Caisse users</h1>
         </div>
     </div>
     <!--/.row-->
@@ -31,7 +31,7 @@
                     <div class="row">
      
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Nouveau Caisse utilisateurs
+  Nouveau Caisse users
 </button>
 
                         <table  id="example1" class="table table-bordered table-hover table-striped">
@@ -48,20 +48,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($caisse_utilisateurs as $caisse_utilisateur)
+                                @foreach($caisse_users as $caisse_user)
                                 <tr>
-                                    <td>{{ $caisse_utilisateur->id }}</td>
-                                    <td>{{ $caisse_utilisateur->heure_debut }}</td>
-                                    <td>{{ $caisse_utilisateur->heure_fin }}</td>
-                                    <td>{{ $caisse_utilisateur->date }}</td>
-                                    <td>{{ $caisse_utilisateur->name }}</td>
-                                    <td>{{ $caisse_utilisateur->numero_caisse }}</td>
+                                    <td>{{ $caisse_user->id }}</td>
+                                    <td>{{ $caisse_user->heure_debut }}</td>
+                                    <td>{{ $caisse_user->heure_fin }}</td>
+                                    <td>{{ $caisse_user->date }}</td>
+                                    <td>{{ $caisse_user->name }}</td>
+                                    <td>{{ $caisse_user->numero_caisse }}</td>
                                     
                                     <td>
-                                        <a href="caisse_utilisateurs/edit/{{ $caisse_utilisateur->id }}" class="glyphicon glyphicon-edit   btn btn-info">edit</a>
-                                        <form action="caisse_utilisateurs/destroy/{{ $caisse_utilisateur->id }}" method="post" class="form-inline">
+                                        <a href="caisse_users/edit/{{ $caisse_user->id }}" class="glyphicon glyphicon-edit   btn btn-info">edit</a>
+                                        <form action="caisse_users/destroy/{{ $caisse_user->id }}" method="post" class="form-inline">
                                         @csrf
-                                <button type="submit" onclick="return confirm('Voulez vs vraiment supprimer cette categorie ?')" class="glyphicon glyphicon-delite glyphicon-trash   btn btn-danger">Delete</button>
+                                <button type="submit" onclick="return confirm('Voulez vs vraiment supprimer cette caisse user ?')" class="glyphicon glyphicon-delite glyphicon-trash   btn btn-danger">Delete</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -77,7 +77,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title" id="exampleModalLabel">L'ajout des caisse utilisateurs</h2>
+        <h2 class="modal-title" id="exampleModalLabel">L'ajout des caisse users</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -87,7 +87,7 @@
                
                <div class="panel-body">
                    <div class="col-md-8">
-                       <form role="form" action="{{ url('caisse_utilisateurs') }}" method="post">
+                       <form role="form" action="{{ url('caisse_users') }}" method="post">
                            @csrf
                            <div class="form-group">
             <label for="">Heure debut</label>
