@@ -11,12 +11,12 @@
 <div class="row">
         <div class="col-lg-10">   
 <div class="panel panel-info"><!--/.row-->
-    <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>Modification de caisse utilisateurs </strong> <a
+    <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>Modification de caisse users </strong> <a
               class="green-text font-weight-bold"><strong> </strong></a></h3>
               </div>
               </div>
               </div>
-              <a href="{{ url('caisse_utilisateurs') }}" > <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+              <a href="{{ url('caisse_users') }}" > <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
             
             <span aria-hidden="true">&times;</span></a>
           </button></a>
@@ -26,10 +26,10 @@
     <div class="row">
         <div class="col-lg-10">
             <div class="panel panel-info">
-                <div class="panel-heading">Modifier la caisse utilisateur n&deg; {{ $caisse_utilisateur->id }}</div>
+                <div class="panel-heading">Modifier la caisse user n&deg; {{ $caisse_user->id }}</div>
                 <div class="panel-body">
                     <div class="col-md-12">
-                        <form role="form" action="/caisse_utilisateurs/{{ $caisse_utilisateur->id }}" method="POST">
+                        <form role="form" action="/caisse_utilisateurs/{{ $caisse_user->id }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="form-group">
@@ -51,7 +51,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Heure debut</label>
-                    <input type="time" name="heure_debut" id="montant" value="{{$caisse_utilisateur->heure_debut}}" 
+                    <input type="time" name="heure_debut" id="montant" value="{{$caisse_user->heure_debut}}" 
                      class="form-control " class="@error('heure_debut') is-danger @enderror " placeholder="" aria-describedby="helpId">
                     @error('heure_debut')
                     <div class="alert alert-danger">{{$message}}</div>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Heure fin</label>
-                    <input type="time" name="heure_fin" id="montant" value="{{$caisse_utilisateur->heure_fin}}" 
+                    <input type="time" name="heure_fin" id="montant" value="{{$caisse_user->heure_fin}}" 
                      class="form-control " class="@error('heure_fin') is-danger @enderror " placeholder="" aria-describedby="helpId">
                     @error('heure_fin')
                     <div class="alert alert-danger">{{$message}}</div>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Date </label>
-                    <input type="datetime-local" name="date" id="date" value="{{$caisse_utilisateur->date}}" 
+                    <input type="datetime-local" name="date" id="date" value="{{$caisse_user->date}}" 
                      class="@error('date') is-danger @enderror form-control datepicker" placeholder="" aria-describedby="helpId">
                     @error('date')
                     <div class="alert alert-danger">{{$message}}</div>
