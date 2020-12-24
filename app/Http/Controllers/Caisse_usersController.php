@@ -102,7 +102,17 @@ class Caisse_usersController extends Controller
      */
     public function edit(Caisse_user $caisse_user)
     {
-        //
+        $users= User::all();
+        $caisses= Caisse::all();
+        $caisse_user = Caisse_user::find($caisse_user->id);
+        
+        return view('caisse_users/edit', [
+         'caisse_user'=>$caisse_user,
+            'users'=>$users,
+            'caisses'=>$caisses,
+           
+    
+        ]);
     }
 
     /**
@@ -114,7 +124,26 @@ class Caisse_usersController extends Controller
      */
     public function update(Request $request, Caisse_user $caisse_user)
     {
-        //
+        $request->validate([
+            'heure_debut' => 'required',
+            'heure_fin' => 'required',
+            'date' => 'required',
+            'caisse_id' => 'required',
+            
+            
+        ]);
+
+        $caisse_user = new Caisse_user();
+        $caisse_user->heure_debut = $request->heure_debut;
+        $caisse_user->heure_fin = $request->heure_fin;
+        $caisse_user->date = $request->date;
+        $caisse_user->user_id = Auth::id();
+        $caisse_user->caisse_id = $request->caisse_id;
+       
+       
+        $caisse_user->save();
+
+        return redirect('caisse_users');
     }
 
     /**
@@ -125,6 +154,9 @@ class Caisse_usersController extends Controller
      */
     public function destroy(Caisse_user $caisse_user)
     {
-        //
+        $caisse_user = Caisse_user::find($caisse_user->id);
+        $caisse_user->delete();
+
+        return redirect('caisse_users');
     }
 }
