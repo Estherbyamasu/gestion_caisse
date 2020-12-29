@@ -14,6 +14,7 @@ class Caisse_usersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+ 
     public function index()
     {
         $caisses = Caisse::all();

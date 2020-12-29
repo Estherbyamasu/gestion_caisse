@@ -9,7 +9,10 @@ use App\Categorie_compte;
  use Illuminate\Support\Facades\DB;
  
 class ComptesController extends Controller{
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 public function index()
 {
     # code... 
