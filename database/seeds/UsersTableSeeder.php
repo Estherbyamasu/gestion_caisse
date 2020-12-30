@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             // 'id' => 1,
             'name'=>'admin',
             'email'=>'admin@gmail.com',
-            'password'=> Hash::make('password')
+            'password'=> Hash::make('git ')
             ]);
            
            $caissier =  User::firstOrCreate([
