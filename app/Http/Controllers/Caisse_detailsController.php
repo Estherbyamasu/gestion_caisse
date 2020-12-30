@@ -138,13 +138,7 @@ class Caisse_detailsController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Caisse_detail  $caisse_detail
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, Caisse_detail $caisse_detail)
     {
         $request->validate([
